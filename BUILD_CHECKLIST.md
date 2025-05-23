@@ -11,7 +11,7 @@
 ## 🧩 Core Tech Stack
 ### Project Setup
 - [ ] Xcode (SwiftUI + SpriteKit) or Unity 2022 LTS — pick one & lock
-- [ ] Shared C++ deterministic-physics library
+- [x] Shared C++ deterministic-physics library
 - [ ] Feature-flag framework for instant A/B roll-outs
 - [ ] CI/CD: GitHub Actions → TestFlight → App Store Connect
 - [ ] Firebase Remote Config + Crashlytics
@@ -26,7 +26,7 @@
 
 ## 🎮 Gameplay Pillars
 ### Core Loop
-- [ ] One-thumb drag-anywhere paddle
+- [x] One-thumb drag-anywhere paddle
 - [ ] Frame-perfect ball physics & predictive ricochet line
 - [ ] "Smash Combo" multiplier → escalating VFX/SFX + haptics
 - [ ] Camera kicks & screen shake for juice
