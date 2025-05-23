@@ -351,6 +351,43 @@ void draw_instructions()
         glEnable(GL_LIGHTING);
 }
 
+// Draw a simple predictive line showing the ball's next bounce point
+void draw_predictive_line()
+{
+        if(!start)
+                return;
+
+        float dx = dirx / rate;
+        float dy = diry / rate;
+        float x = bx;
+        float y = by;
+
+        // advance until hitting a wall or the ceiling
+        for(int i = 0; i < 200; ++i)
+        {
+                x += dx;
+                y += dy;
+                if(x < -16 || x > 16)
+                {
+                        dx *= -1;
+                        break;
+                }
+                if(y > 14)
+                {
+                        dy *= -1;
+                        break;
+                }
+        }
+
+        glDisable(GL_LIGHTING);
+        glColor4fv(text_color_array[4]);
+        glBegin(GL_LINES);
+        glVertex3f(bx, by, 0);
+        glVertex3f(x, y, 0);
+        glEnd();
+        glEnable(GL_LIGHTING);
+}
+
 //The main display function
 void display (void) {
         // Dark grey background for a cleaner look
@@ -362,6 +399,7 @@ void display (void) {
         draw_paddle();
         draw_bricks();
         draw_ball();
+        draw_predictive_line();
         text(score);
         draw_instructions();
         glutSwapBuffers();

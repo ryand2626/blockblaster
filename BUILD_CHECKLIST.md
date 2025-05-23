@@ -27,7 +27,7 @@
 ## 🎮 Gameplay Pillars
 ### Core Loop
 - [x] One-thumb drag-anywhere paddle
-- [ ] Frame-perfect ball physics & predictive ricochet line
+ - [x] Frame-perfect ball physics & predictive ricochet line
 - [ ] "Smash Combo" multiplier → escalating VFX/SFX + haptics
 - [ ] Camera kicks & screen shake for juice
 
