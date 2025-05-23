@@ -1,8 +1,8 @@
-CXX=g++
-CXXFLAGS=-Wall -Wextra -std=c++11
-LDFLAGS=-lglut -lGL -lGLU
+CXX = g++
+CXXFLAGS = -Wall -Wextra -std=c++11
+LDFLAGS = -lglut -lGL -lGLU
 
-TARGET=game
+TARGET = blockblaster
 
 all: $(TARGET)
 

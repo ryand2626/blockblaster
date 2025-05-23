@@ -5,7 +5,8 @@ Brick Breaker is a classic arcade-style game in which the player controls a padd
 The game level can be adjusted by changing the speed of the ball (via code) but user can change that using right click menu. The game also has a start/stop feature, which can be toggled using by pressing <b>“s”</b> button. Basic controls are <b>“a”</b> to move paddle left, <b>“d”</b> to move paddle right, <b>“q”</b> to quit the game.<br><br>
 The game logic is implemented in the main loop, where the ball's position is updated based on its velocity, and collision detection is performed to determine if the ball has hit the paddle or a brick. If the ball hits a brick, the brick is removed, and the player's score is increased. If the ball hits the paddle, its velocity is adjusted based on the position of the paddle. If the ball hits the bottom of the screen, the game is over.<br>
 ## Build Instructions
-Run ./setup.sh before network access is removed to install OpenGL dependencies. Then compile with `make`.
+Run `./setup.sh` before network access is removed to install the required OpenGL development libraries. Then compile the game using `make`.
+
 
 
 ## Basic Functions Used :<br>
