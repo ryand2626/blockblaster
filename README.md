@@ -17,3 +17,22 @@ The game logic is implemented in the main loop, where the ball's position is upd
 9. `void idle();` - This function is called when the game is idle, i.e., when there are no other events to handle. It is used to update the ball's position and check for collisions.<br>
 10. `void reshape(GLsizei width, GLsizei height);` - This function is called when the window is resized. It is used to update the viewport and projection matrix to match the new window size.<br>
 11. `void reset();` - This function is used to reset the game when the player loses a life or completes a level. It resets the ball and paddle positions and generates a new set of bricks to break.<br>
+
+
+## Building
+
+This project uses GLUT and OpenGL. On Debian-based systems, install the
+`freeglut3-dev` package before building:
+
+```bash
+sudo apt-get install freeglut3-dev
+```
+
+To build the game run:
+
+```bash
+g++ -o game code.cpp -lglut -lGL -lGLU
+```
+
+Run `./game` to start the application.
+
