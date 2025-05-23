@@ -8,14 +8,21 @@
 
 
 int score = 0;
-int brick_color = 0,ball_color = 2,level = 2,paddle_color = 2,text_color = 3,size = 1;;
+int brick_color = 0, ball_color = 2, level = 2,
+    paddle_color = 2, text_color = 3, size = 1;
 GLfloat twoModel[]={GL_TRUE};
 int game_level[] = {40,30,20};
 float rate = game_level[level];
 
 GLfloat brick_color_array[][3] = {{1,0,0},{0,0,1},{0,1,0},{1,1,1}};
 GLfloat paddle_color_array[][3] = {{1,0,0},{0,0,1},{0,1,0},{0,1,1}};
-GLfloat text_color_array[][4] = {{1,0,0,1},{0,0,1,1},{0,1,0,1},{1,1,0,1},(0.5,0.5,0.5,1)};
+GLfloat text_color_array[][4] = {
+    {1,0,0,1},   // red
+    {0,0,1,1},   // blue
+    {0,1,0,1},   // green
+    {1,1,0,1},   // yellow
+    {0.5,0.5,0.5,1} // grey
+};
 GLfloat paddle_size[] = {2,4,6};
 //The grid parameters for the bricks
 int rows = 4;

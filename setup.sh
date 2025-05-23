@@ -1,9 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-# Install OpenGL and GLUT development libraries
+# Install dependencies for building the project
 sudo apt-get update
-sudo apt-get install -y build-essential freeglut3-dev
+DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
+    build-essential \
+    freeglut3-dev \
+    libgl1-mesa-dev \
+    libglu1-mesa-dev
 
 # Additional dependencies can be added here
 
