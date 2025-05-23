@@ -12,3 +12,4 @@ DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
 # Additional dependencies can be added here
 
 echo "Dependencies installed"
+

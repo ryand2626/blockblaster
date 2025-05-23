@@ -4,6 +4,7 @@ LDFLAGS = -lglut -lGL -lGLU
 
 TARGET = blockblaster
 
+
 all: $(TARGET)
 
 $(TARGET): code.o
