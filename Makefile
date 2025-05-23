@@ -36,13 +36,17 @@ run: $(TARGET)
 	./$(TARGET)
 
 # Install dependencies
+ifeq ($(UNAME_S),Linux)
+SETUP_CMD = sudo apt-get update && \
+DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
+build-essential freeglut3-dev libgl1-mesa-dev libglu1-mesa-dev
+else ifeq ($(UNAME_S),Darwin)
+SETUP_CMD = xcode-select --install && brew install glfw glew freeglut
+else
+SETUP_CMD = echo "Unsupported OS $(UNAME_S)"
+endif
+
 setup:
-	ifeq ($(UNAME_S),Linux)
-		sudo apt-get update && \
-		DEBIAN_FRONTEND=noninteractive sudo apt-get install -y build-essential freeglut3-dev libgl1-mesa-dev libglu1-mesa-dev
-	else ifeq ($(UNAME_S),Darwin)
-		xcode-select --install
-		brew install glfw glew freeglut
-	endif
+	$(SETUP_CMD)
 
 .PHONY: all clean run setup
