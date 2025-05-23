@@ -1,0 +1,52 @@
+# Build artifacts
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.dylib
+
+# Executable
+blockblaster
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build directories
+build/
+dist/
+bin/
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Dependency directories
+deps/
+
+# Package files
+*.tar.gz
+*.zip
+
+# Local development files
+.env
+*.local
+
+# Debug files
+*.dSYM/
+*.pdb
+*.ilk
+*.suo
+*.user
+*.sln.docstates
+
+# Test files
+test_opengl
+
+# Logs
+*.log
