@@ -309,31 +309,62 @@ void text( int sc)
 	  px = 0;	
 
 	}
-	// The color
-	glColor4fv(text_color_array[text_color]);
-	// Position of the text to be printer
-	glPushMatrix();
-	glTranslatef(-1,0,0);
-	glRasterPos3f(0, 0, 20);
-	for(int i = 0; text[i] != '\0'; i++)
-		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, text[i]);
-	glEnable(GL_LIGHTING);
-	glPopMatrix();
+        // Render the text as a 2D overlay
+        glColor4fv(text_color_array[text_color]);
+        glMatrixMode(GL_PROJECTION);
+        glPushMatrix();
+        glLoadIdentity();
+        gluOrtho2D(-20,20,-20,20);
+        glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+        glLoadIdentity();
+        glRasterPos2f(-19.f, 18.f);
+        for(int i = 0; text[i] != '\0'; i++)
+                glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, text[i]);
+        glPopMatrix();
+        glMatrixMode(GL_PROJECTION);
+        glPopMatrix();
+        glMatrixMode(GL_MODELVIEW);
+        glEnable(GL_LIGHTING);
+}
+
+// Display basic instructions at the bottom of the screen
+void draw_instructions()
+{
+        glDisable(GL_LIGHTING);
+        const char *msg = "Press 's' to start, 'a'/'d' to move, 'q' to quit";
+        glMatrixMode(GL_PROJECTION);
+        glPushMatrix();
+        glLoadIdentity();
+        gluOrtho2D(-20,20,-20,20);
+        glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+        glLoadIdentity();
+        glColor4fv(text_color_array[text_color]);
+        glRasterPos2f(-19.f, -19.f);
+        for(const char *p = msg; *p; ++p)
+                glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, *p);
+        glPopMatrix();
+        glMatrixMode(GL_PROJECTION);
+        glPopMatrix();
+        glMatrixMode(GL_MODELVIEW);
+        glEnable(GL_LIGHTING);
 }
 
 //The main display function
 void display (void) {
-	
-	glClearColor (0.0,0.0,0.0,1.0);
-	glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glLoadIdentity();
-	gluLookAt(0,0,0,0,0,-25,0,1,0);
-	glTranslatef(0,0,-25);
-	draw_paddle(); 
-	draw_bricks();
-	draw_ball();
-	text(score);
-	glutSwapBuffers();
+        // Dark grey background for a cleaner look
+        glClearColor (0.1f,0.1f,0.1f,1.0f);
+        glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glLoadIdentity();
+        gluLookAt(0,0,0,0,0,-25,0,1,0);
+        glTranslatef(0,0,-25);
+        draw_paddle();
+        draw_bricks();
+        draw_ball();
+        text(score);
+        draw_instructions();
+        glutSwapBuffers();
 }
 
 

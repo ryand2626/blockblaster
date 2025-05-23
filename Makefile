@@ -1,7 +1,7 @@
 # Compiler and flags
-CXX = clang++
-CXXFLAGS = -Wall -Wextra -std=c++11 -I/opt/homebrew/include
-LDFLAGS = -L/opt/homebrew/lib -lglfw -lGLEW -framework OpenGL -framework GLUT
+CXX = g++
+CXXFLAGS = -Wall -Wextra -std=c++11
+LDFLAGS = -lglut -lGL -lGLU -lm
 
 # Target executable
 TARGET = blockblaster
@@ -25,9 +25,9 @@ clean:
 run: $(TARGET)
 	./$(TARGET)
 
-# Install dependencies (macOS)
+# Install dependencies (Linux)
 setup:
-	xcode-select --install
-	brew install glfw glew freeglut
+	sudo apt-get update && \
+	DEBIAN_FRONTEND=noninteractive sudo apt-get install -y build-essential freeglut3-dev libgl1-mesa-dev libglu1-mesa-dev
 
 .PHONY: all clean run setup

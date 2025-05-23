@@ -24,18 +24,17 @@ Run `./setup.sh` before network access is removed to install the required OpenGL
 
 ## Building
 
-This project uses GLUT and OpenGL. On Debian-based systems, install the
-`freeglut3-dev` package before building:
+This project uses GLUT and OpenGL. On Debian-based systems, run the `setup` target to install dependencies:
 
 ```bash
-sudo apt-get install freeglut3-dev
+make setup
 ```
 
-To build the game run:
+Then build the game with:
 
 ```bash
-g++ -o game code.cpp -lglut -lGL -lGLU
+make
 ```
 
-Run `./game` to start the application.
+Run `./blockblaster` to start the application.
 
